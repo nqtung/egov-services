@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration debug="true" xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <appender name="fileAppender" class="org.apache.log4j.rolling.RollingFileAppender">
+        <param name="file" value="c:/temp/logs/egov-wservices.log" />
+        <param name="append" value="true" />
+        <rollingPolicy class="org.apache.log4j.rolling.TimeBasedRollingPolicy">
+            <param name="FileNamePattern" value="c:/temp/archive/egov-wservices.%d{yyyy-MM-dd}.gz" />
+            <param name="ActiveFileName" value="c:/temp/logs/egov-wservices.log"/>
+        </rollingPolicy>
+        <layout class="org.apache.log4j.EnhancedPatternLayout">
+            <param name="ConversionPattern" value="%d{yyMMdd HH:mm:ss,SSS} [%t] %-5p %c %X %m%n" />
+        </layout>
+    </appender>
+    <logger name="org.hibernate">
+        <level value="ALL" />
+        <appender-ref ref="fileAppender"/>
+    </logger>
+    <logger name="com.fpt.egov">
+        <level value="DEBUG" />
+        <appender-ref ref="fileAppender"/>
+    </logger>
+    <root>
+        <!--<priority value="info" />-->
+        <priority value="debug" />
+        <appender-ref ref="fileAppender" />
+    </root>
+</log4j:configuration>

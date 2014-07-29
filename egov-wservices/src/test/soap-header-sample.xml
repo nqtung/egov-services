@@ -1,0 +1,8 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.framework.wservices.egov.fpt.com/">
+    <soapenv:Header>
+        <X-TenantId>001</X-TenantId>
+    </soapenv:Header>
+    <soapenv:Body>
+        <ws:healtcheck/>
+    </soapenv:Body>
+</soapenv:Envelope>
